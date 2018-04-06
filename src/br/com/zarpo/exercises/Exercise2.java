@@ -6,7 +6,7 @@ import java.io.*;
  *
  * @author Artur
  */
-public class ExerciseTwo {
+public class Exercise2 {
 
     public static void main(String[] args) throws FileNotFoundException {
         String csvPath = "src\\br\\com\\zarpo\\data\\Visits.csv";
