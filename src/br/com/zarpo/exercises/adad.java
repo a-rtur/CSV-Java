@@ -7,7 +7,7 @@ import java.util.*;
  *
  * @author Artur
  */
-public class Exercise3 {
+public class adad {
 
     public static void main(String[] args) throws FileNotFoundException {
         String csvVisits = "src\\br\\com\\zarpo\\data\\Visits.csv";
