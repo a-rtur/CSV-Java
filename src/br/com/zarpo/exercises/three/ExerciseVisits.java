@@ -1,4 +1,4 @@
-package br.com.zarpo.exercises;
+package br.com.zarpo.exercises.three;
 
 import java.io.*;
 import java.util.*;
@@ -7,7 +7,7 @@ import java.util.*;
  *
  * @author Artur
  */
-public class Exercise3 {
+public class ExerciseVisits {
 
     public static void main(String[] args) throws FileNotFoundException {
         String csvVisits = "src\\br\\com\\zarpo\\data\\Visits.csv";
@@ -15,7 +15,6 @@ public class Exercise3 {
         String lineV = "";
         ArrayList<Integer> dontCheck = new ArrayList<Integer>();
         int alreadyVisited = 0;
-        int alreadyBought = 0;
         try {
             brV = new BufferedReader(new FileReader(csvVisits));
             brV.readLine();
@@ -24,7 +23,6 @@ public class Exercise3 {
                 boolean foundIt = false;
                 int currentIdV = Integer.parseInt(columnsV[1]);
                 int currentVisits = Integer.parseInt(columnsV[2]);
-                int currentSales = Integer.parseInt(columnsV[3]);
                 for (int i = 0; i < dontCheck.size(); i++) {
                     if (currentIdV == dontCheck.get(i)) {
                         foundIt = true;
@@ -34,10 +32,9 @@ public class Exercise3 {
                 if (currentVisits > 0 && foundIt == false) {
                     alreadyVisited++;
                 }
-                if (currentSales > 0 && foundIt == false) {
-                    alreadyBought++;
+                if (currentVisits != 0) {
+                    dontCheck.add(currentIdV);
                 }
-                dontCheck.add(currentIdV);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -45,6 +42,5 @@ public class Exercise3 {
             e.printStackTrace();
         }
         System.out.println("Visited at least once: " + alreadyVisited);
-        System.out.println("Bought at least once: " + alreadyBought);
     }
 }

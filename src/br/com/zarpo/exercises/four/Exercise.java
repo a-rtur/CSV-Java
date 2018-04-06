@@ -1,4 +1,4 @@
-package br.com.zarpo.exercises;
+package br.com.zarpo.exercises.four;
 
 import java.io.*;
 
@@ -6,25 +6,35 @@ import java.io.*;
  *
  * @author Artur
  */
-public class Exercise1 {
+public class Exercise {
 
     public static void main(String[] args) throws FileNotFoundException {
-        String csvPath = "src\\br\\com\\zarpo\\data\\Visits.csv";
+        String csvPath = "src\\br\\com\\zarpo\\data\\Members.csv";
         BufferedReader br = null;
         String line = "";
-        int totalSales = 0;
+        int A = 0;
+        int B = 0;
+        int C = 0;
         try {
             br = new BufferedReader(new FileReader(csvPath));
             br.readLine();
             while ((line = br.readLine()) != null) {
                 String[] columns = line.split(",");
-                totalSales = totalSales + Integer.parseInt(columns[3]);
+                if (columns[2].equals("A")) {
+                    A++;
+                }
+                else if (columns[2].equals("B")) {
+                    B++;
+                }
+                else {
+                    C++;
+                }
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(totalSales);
+        System.out.println(A + " " + B + " " + C);
     }
 }
